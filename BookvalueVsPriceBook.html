@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Sarmaaya Charts</title>
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew&display=swap');
+
+
+    canvas {
+        letter-spacing: 0.px !important;
+
+    }
+</style>
+
+
+<body>
+    <canvas id="myChart" style="height:230px!important; width: 500px!important;"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2018', '2019', '2020', 'TTM',],
+                datasets: [
+
+                    {
+                        label: 'Book Value',
+                        data: [31.37, 41.73, 41.88, 54.6,],
+                        backgroundColor: '#61CF05',
+                        borderWidth: 1,
+                        borderColor: '#61CF05',
+                        yAxisID: 'y',
+                        borderWidth: 1,
+                        pointRadius: 4,
+                        pointBorderWidth: 2,
+                        barThickness: 50
+
+                    },
+
+                ]
+            },
+            options: {
+                responsive: false,
+
+                layout: {
+                    padding: 40
+                },
+                plugins: {
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'grey',
+                        borderWidth: 1,
+                        titleColor: 'white',
+                        displayColors: false,
+
+                    },
+                    legend: {
+                        display: true,
+                        labels: {
+                            boxWidth: 20
+                        }
+                    }
+                },
+                scales: {
+
+                    y: {
+                        ticks: {
+                            stepSize: 12.5
+                        },
+                        beginAtZero: true,
+                        type: 'linear',
+                        position: 'left',
+                        grid: {
+                            display: false,
+
+                        },
+                        title: {
+                            display: true,
+                            text: 'Book Value',
+                        }
+                    },
+                    percentage: {
+                        ticks: {
+                            stepSize: 0.7
+                        },
+                        beginAtZero: true,
+                        type: 'linear',
+                        position: 'right',
+                        grid: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Price Book Ratio',
+                            fontSize: 12
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script src="./chart.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
